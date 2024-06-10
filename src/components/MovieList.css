@@ -1,0 +1,16 @@
+#forecast {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.flex-box {
+    display: flex;
+    flex-wrap: wrap;
+    background: linear-gradient(
+      to bottom right,
+      #f0f0f0,
+      #d8d1d1,
+      #a49f9f,
+      #cccccc
+    );
+    justify-content: center;
+    margin: auto;
+}
