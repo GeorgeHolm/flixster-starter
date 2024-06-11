@@ -2,25 +2,32 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from 'prop-types';
 import './MovieCard.css'
+import propTypes from 'prop-types';
 
 const MovieCard = (props) => {
 
-    const isWarm = props.temperature >=  60;
+    const details = () => {
+        console.log("Hello there");
+        props.showModal(true);
+        props.setModal(props.totalData);
+    }
+
+
+
     return (
-        <div className="day">
-            <h3>Title</h3>
-            <p>Poster image</p>
-            <p>Rating</p>
+        <div className="movie" onClick={details}>
+            <img className="poster" src={props.image}/>
+            <h3>{props.title}</h3>
+            <p>{props.rating}</p>
         </div>
     );
 
 }
 
-
-MovieCard.PropTypes = {
-    date: PropTypes.string.isRequired,
-    temperature: PropTypes.number.isRequired,
-    weather: PropTypes.string.isRequired,
-};
+MovieCard.propTypes = {
+    title: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+}
 
 export default MovieCard;
