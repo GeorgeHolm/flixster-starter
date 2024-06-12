@@ -30,6 +30,7 @@ const MovieList = (props) => {
           setResults(res.results);
         } else {
           setResults((prevState) => [...prevState, ...res.results]);
+
         }
       }) //spread operator
 
@@ -49,14 +50,52 @@ const MovieList = (props) => {
   }
 
 
+  const filterMovies = (filter) => {
 
+    const fR = results.filter((movie, idx, self) => self.findIndex(i => i.title === movie.title) === idx);
 
+    if (filter === "default") {
+        return fR;
+    }
+    else if(filter === "best") {
+        return fR.filter(movie => movie.vote_average >= 7);
+    }
+    else if(filter === "worst") {
+        return fR.filter(movie => movie.vote_average <= 5);
+    }
+    else if(filter === "comedy") {
+        return fR.filter(movie => movie.genre_ids?.some((id) => id === 35));
+    }
+    else if(filter === "action") {
+        return fR.filter(movie => movie.genre_ids?.some((id) => id === 28));
+    }
+    else if(filter === "drama") {
+        return fR.filter(movie => movie.genre_ids?.some((id) => id === 18));
+    }
+    else if(filter === "horror") {
+        return fR.filter(movie => movie.genre_ids?.some((id) => id === 27));
+    }
+    else if(filter === "az") {
+        return fR.sort((a, b) => {
+            if (a.title < b.title) return -1;
+            if (a.title > b.title) return 1;
+            return 0;
+          });
+    }
+    else if(filter === "za") {
+        return fR.sort((a, b) => {
+            if (b.title < a.title) return -1;
+            if (b.title > a.title) return 1;
+            return 0;
+          });    }
+  };
 
+  const filteredResults = filterMovies(props.filter);
 
   return (
     <div id="forecast">
       <div className="flex-box">
-        {results.map((res, idx) => (
+        {filteredResults.map((res, idx) => (
           <MovieCard
             title={res.title}
             image={"https://image.tmdb.org/t/p/w500" + res.poster_path}

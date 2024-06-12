@@ -4,12 +4,22 @@ import MovieList from './components/MovieList';
 import React from "react";
 import Modal from './components/Modal';
 
+
+
+
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [useLink, setUseLink] = useState("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=");
   let handleSearchChange = (e) => {
-    var lowerCase = e.target.value.toLowerCase();
-    setSearchQuery(lowerCase);
+
+    if(e.key === 'Enter') {
+      e.preventDefault();
+      console.log(e.target.value);
+      var lowerCase = e.target.value.toLowerCase();
+      setSearchQuery(lowerCase);
+      setUseLink('https://api.themoviedb.org/3/search/movie?query=' + lowerCase + '&include_adult=false&language=en-US&page=');
+    }
+
   }
 
   let commitSearch = () => {
@@ -24,6 +34,11 @@ const App = () => {
 
   let commitNowPlaying = () => {
     setUseLink('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=');
+  }
+
+  let commitRating = () => {
+    setUseLink('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=');
+    console.log("Sorting by rating");
   }
 
 
@@ -44,6 +59,51 @@ const App = () => {
   }
 
 
+  //select sort stuff
+
+
+  const [filterChoice, setFilterChoice] = React.useState("default");
+
+  function handleChange(e) {
+    console.log(e.target.value);
+    if (e.target.value === "none") {
+      setUseLink('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=');//change to change at the lower level
+      setFilterChoice("default");
+    }
+    else if (e.target.value === "bestAllTime") {
+      setUseLink('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=');
+      setFilterChoice("default");
+
+    }
+    else if (e.target.value === "best") {
+      setFilterChoice("best");
+
+
+    }
+    else if (e.target.value === "worst") {
+      setFilterChoice("worst");
+    }
+    else if (e.target.value === "comedy") {
+      setFilterChoice("comedy");
+    }
+    else if (e.target.value === "horror") {
+      setFilterChoice("horror");
+    }
+    else if (e.target.value === "drama") {
+      setFilterChoice("drama");
+    }
+    else if (e.target.value === "action") {
+      setFilterChoice("action");
+    }
+    else if (e.target.value === "az") {
+      setFilterChoice("az");
+    }
+    else if (e.target.value === "za") {
+      setFilterChoice("za");
+    }
+
+    
+  }
 
   return (
     <div className="App">
@@ -54,28 +114,58 @@ const App = () => {
             contentLabel="Example Modal"
           />
       <header>
-        <h1>Flixter</h1>
-        <div>
-          <span>
-            <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search" />
+            <h1 className='headLogo'>&#127871; Flixter &#127909;</h1>
+
+        <div className=' flex'>
+          
+
+          <span className='margin'>
+            <div className="box">
+              <form id='minimize-form' name="search" value={searchQuery} onKeyDown={handleSearchChange}>
+                  <input placeholder='&#127909;' type="text" className="input" name="txt"  onMouseOut="this.value = ''; this.blur();"/>
+              </form>
+            </div>
           </span>
-          <span>
-            <button onClick={commitSearch} >
-              Search
+
+          <span className='margin'>
+            <button id='now-playing' onClick={commitNowPlaying} >
+              Now Playing
             </button>
           </span>
 
-          <span>
-            <button onClick={commitNowPlaying} >
-              Now Playing
-            </button>
+          <span className='margin'>
+            <select onChange={handleChange} className='sortClass' id='sort'>
+              <option  value="none">None</option>
+              <option  value="bestAllTime">Best of All Time</option>
+              <option value="best">Best Now</option>
+              <option value="worst">Worst Now</option>
+              <option value="comedy">Comedies</option>
+              <option value="horror">Horror</option>
+              <option value="drama">Dramas</option>
+              <option value="action">Action</option>
+              <option value="az">A-Z</option>
+              <option value="za">Z-A</option>
+
+
+
+
+            </select>
           </span>
         </div>
       </header>
       <main>
-        <MovieList setModal={setModalData} showModal={setModalIsOpen} link={useLink}/>
+        <MovieList filter={filterChoice} setModal={setModalData} showModal={setModalIsOpen} link={useLink}/>
       </main>
+
+      <footer>
+        <span>All Rights Reserved | </span>
+        <span>
+          <a href="https://www.linkedin.com/checkpoint/lg/login-submit">LinkedIn</a>
+        </span>
+        
+      </footer>
     </div>
+
   );
 }
 

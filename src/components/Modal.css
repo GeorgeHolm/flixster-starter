@@ -1,4 +1,8 @@
 
+.poster {
+    width: 120px;
+    height: 180px;
+  }
 
 .overlay {
   box-sizing: border-box;
@@ -44,3 +48,4 @@
 .modalClosed {
     display: none;
 }
+

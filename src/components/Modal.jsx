@@ -38,7 +38,7 @@ export function Modal(props) {
 
 
 
-const [movie, setMovie] = useState([]);
+const [movie, setMovie] = useState({});
 
 
 useEffect(() => {
@@ -65,15 +65,31 @@ useEffect(() => {
 
 
 
-
-
+    //May need to make changes to genres
+    
     return (
         <div className= {style} onClick={() => props.onRequestClose()}>
             <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <h2>
+                    {movie.title}
+                </h2>
+                <img className="poster" src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}/>
+                <p>Release Date: {movie.release_date}</p>
+                <p>Overview: {movie.overview}</p>
+                <div>
+                    <span>Genres: </span> 
+                    {
+                    movie.genres?.map((res) => (
+                       
+                        <span>{res.name + " "}</span> 
+                    ))} 
+                </div>
+                <p>Runtime: {movie.runtime} Minutes</p>
                 
-            {movie.title}
-            {movie.overview}
-            {movie.release_date}
+                
+                
+            
+            
 
                 <button
                 onClick={() => props.onRequestClose()}
