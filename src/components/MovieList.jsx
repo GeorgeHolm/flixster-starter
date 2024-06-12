@@ -9,6 +9,9 @@ const MovieList = (props) => {
   const [results, setResults] = useState([]);
   const [nextPage, setNextPage] = useState(1);
   const[propsLink, setPropsLink] = useState(props.link);
+  const[favoriteMovies, setFavoriteMovies] = useState([]);
+  const[watchedMovies, setWatchedMovies] = useState([]);
+
 
   useEffect(() => {
     handlePropsLink();
@@ -92,8 +95,32 @@ const MovieList = (props) => {
 
   const filteredResults = filterMovies(props.filter);
 
+
+
+  //favorite movies
+
+  const editFavorites = (movie) => {
+    setFavoriteMovies((prevState) => [...prevState, movie]);
+  }
+
+  const removeFavorites = (movie) => {
+
+        setFavoriteMovies(favoriteMovies => favoriteMovies.filter(key => key !== movie));
+  }
+
+  const editWatched = (movie) => {
+    setWatchedMovies((prevState) => [...prevState, movie]);
+  }
+
+  const removeWatched = (movie) => {
+
+        setWatchedMovies(favoriteMovies => favoriteMovies.filter(key => key !== movie));
+  }
+
+
   return (
-    <div id="forecast">
+    <div id="large-container">
+    <div id="movies">
       <div className="flex-box">
         {filteredResults.map((res, idx) => (
           <MovieCard
@@ -104,6 +131,10 @@ const MovieList = (props) => {
             totalData={res}
             showModal={props.showModal}
             setModal={props.setModal}
+            ef={editFavorites}
+            rf={removeFavorites}
+            ew={editWatched}
+            rw={removeWatched}
           />
         ))}
       </div>
@@ -112,6 +143,23 @@ const MovieList = (props) => {
         Load More
       </button>
     </div>
+    <div id="side-bar">
+        <h2 className="side-header">
+            Favorites
+            
+        </h2>
+
+        {favoriteMovies.map((name) => (<p>{name}</p>))}
+
+        <h2 className="side-header">
+            Watched
+            
+        </h2>
+
+        {watchedMovies.map((name) => (<p>{name}</p>))}
+    </div>
+    </div>
+
   );
 };
 

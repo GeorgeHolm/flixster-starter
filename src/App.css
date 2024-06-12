@@ -6,10 +6,13 @@ h1 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bolder;
   font-size: 60px;
+  margin: 0px;
+  padding: 60px;
 }
 
 footer {
   background-color: #a8a3ac;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 
   padding: 10px;
 }
