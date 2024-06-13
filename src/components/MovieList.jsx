@@ -11,6 +11,7 @@ const MovieList = (props) => {
   const[propsLink, setPropsLink] = useState(props.link);
   const[favoriteMovies, setFavoriteMovies] = useState([]);
   const[watchedMovies, setWatchedMovies] = useState([]);
+  const[sideBarStyle, setSideBarStyle] = useState("off");
 
 
   useEffect(() => {
@@ -118,6 +119,25 @@ const MovieList = (props) => {
   }
 
 
+    //side bar stuff
+
+    const setSide = () => {
+        console.log("jnakjckjcn");
+        if(props.sideBar) {
+            setSideBarStyle("on");
+        } 
+        else {
+            setSideBarStyle("off");
+        }
+    }
+
+ useEffect(() => {
+    setSide();
+ }, [props.sideBar]);
+
+
+
+
   return (
     <div id="large-container">
     <div id="movies">
@@ -143,7 +163,7 @@ const MovieList = (props) => {
         Load More
       </button>
     </div>
-    <div id="side-bar">
+    <div id="side-bar" className={sideBarStyle}>
         <h2 className="side-header">
             Favorites
             

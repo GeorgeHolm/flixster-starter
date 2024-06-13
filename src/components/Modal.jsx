@@ -60,7 +60,7 @@ export function Modal(props) {
 
   return (
     <div className={style} onClick={() => props.onRequestClose()}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div className="modal"  onClick={(e) => e.stopPropagation()}>
         <div className="bottom">
           <span className="half  right-border">
             <h2>{movie.title}</h2>
@@ -100,6 +100,9 @@ export function Modal(props) {
             </div>
           </span>
         </div>
+     
+            <img id="backdrop"  src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}/>
+    
       </div>
     </div>
   );

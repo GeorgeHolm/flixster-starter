@@ -48,6 +48,8 @@ const App = () => {
 
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
   const [modalData, setModalData] = React.useState([]);
+  const [sideB, setSideB] = React.useState(false);
+
     
   function openModal() {
     setModalIsOpen(true);
@@ -105,6 +107,12 @@ const App = () => {
     
   }
 
+
+  const sideBar = () => {
+    setSideB(!sideB);
+
+  }
+
   return (
     <div className="App">
       <Modal
@@ -133,6 +141,13 @@ const App = () => {
             </button>
           </span>
 
+
+          <span className='margin'>
+            <button id='now-playing' onClick={sideBar} >
+              Side Bar
+            </button>
+          </span>
+
           <span className='margin'>
             <select onChange={handleChange} className='sortClass' id='sort'>
               <option  value="none">None</option>
@@ -154,7 +169,7 @@ const App = () => {
         </div>
       </header>
       <main>
-        <MovieList filter={filterChoice} setModal={setModalData} showModal={setModalIsOpen} link={useLink}/>
+        <MovieList filter={filterChoice} setModal={setModalData} showModal={setModalIsOpen} link={useLink} sideBar={sideB}/>
       </main>
 
       <footer>

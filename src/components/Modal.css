@@ -15,6 +15,17 @@
     height: 20vh;
   }
 
+  #backdrop{
+    z-index: 2;
+    opacity: 0.2;
+    position: absolute;
+    float: left;
+    width: 80%;
+    height: 80%;
+    filter: blur(5px);
+
+  }
+
 .overlay {
   box-sizing: border-box;
   position: fixed;
@@ -25,6 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   background-color: rgba(52, 64, 84, 0.6);
   backdrop-filter: blur(8px);
   z-index: 1; /* Sit on top */
@@ -41,6 +53,8 @@
     float: left;
     align-items: center;
     width: 49%;
+    z-index: 2;
+
 }
 
 .right-border { 
@@ -53,13 +67,14 @@
 .bottom {
     display: table;
     height: 100%;
+    z-index: 3;
 
 }
 
 
 
 .modal {
-    text-shadow: 1px 0 #000000;
+    text-shadow: 0.1px 0 #000000;
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
 
