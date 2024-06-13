@@ -1,6 +1,7 @@
 .movie {
+    max-width: 55%;
     width: 200px;
-    height: 300px;
+    min-height: 300px;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
@@ -8,8 +9,12 @@
     margin: 1%;
     box-shadow: 10px 5px 5px;
     background-color: whitesmoke;
-    border-radius: 5%;
+    border-radius: 20px;
+    transition: .5s;
 
+  }
+  .movie:hover {
+    background-color: #fce6e8;
   }
 
   .poster {
@@ -21,8 +26,9 @@
 
 
   .movie:active {
-    background-color: rgb(187, 29, 29);
+    background-color: #170102;
     color: whitesmoke;
     z-index: auto;
     transform: scale(1.02);
   }
+

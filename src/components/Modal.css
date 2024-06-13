@@ -1,12 +1,18 @@
 
 .modal .poster {
-    width: 240px;
-    height: 360px;
+    width: 20vw;
+    height: 30vw;
   }
 
-  button {
+  .modal button {
     margin: 10px;
     float: right;
+  }
+
+
+  #overview {
+    overflow-y: auto;
+    height: 20vh;
   }
 
 .overlay {
@@ -21,37 +27,57 @@
   align-items: center;
   background-color: rgba(52, 64, 84, 0.6);
   backdrop-filter: blur(8px);
-  animation: fadein 0.5s;
+  z-index: 1; /* Sit on top */
+
 }
 #trailer {
-    width: 100%;
+    align-items: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 15vw;
+    width: 20vw;
 }
 .half {
     float: left;
-    width: 50%;
+    align-items: center;
+    width: 49%;
+}
+
+.right-border { 
+    border-right: 5px solid ;
+    border-image: linear-gradient(45deg, #2e0204, #96070e) 1;
+
+    height: 100%;
 }
 
 .bottom {
     display: table;
+    height: 100%;
 
 }
 
 
 
 .modal {
+    text-shadow: 1px 0 #000000;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
   display: flex;
   flex-direction: column;
   width: 80%;
   height: 80%;
   margin: 5% 10% 5% 10%;
-  background: white;
-  border-radius: 0.75rem;
+  background: linear-gradient(45deg, #f5989b, #f44951);
   box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.1),
     0px 8px 8px -4px rgba(16, 24, 40, 0.04);
   transition: all 0.5s ease;
   z-index: 1;
-
+  border: 5px solid ;
+  border-image: linear-gradient(45deg, #2e0204, #9f060e) 3;
 }
+
+
 .modalOpen {
     display: block;
 }

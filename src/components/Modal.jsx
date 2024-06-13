@@ -62,7 +62,7 @@ export function Modal(props) {
     <div className={style} onClick={() => props.onRequestClose()}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="bottom">
-          <span className="half">
+          <span className="half  right-border">
             <h2>{movie.title}</h2>
             <img
               className="poster"
@@ -72,7 +72,9 @@ export function Modal(props) {
           <span className="half">
             <button onClick={() => props.onRequestClose()}>Cancel</button>
             <p>Release Date: {movie.release_date}</p>
-            <p>Overview: {movie.overview}</p>
+            <div id="overview">
+                <p>Overview: {movie.overview}</p>
+            </div>
             <div>
               <span>Genres: </span>
               {movie.genres?.map((res) => (
@@ -83,8 +85,8 @@ export function Modal(props) {
 
             <div id="trailer">
               <iframe
-                width="300"
-                height="150"
+                width="100%"
+                height="100%"
                 src={
                   "https://www.youtube.com/embed/" +
                   movie.videos?.results[0]?.key
