@@ -77,4 +77,4 @@ React
 
 ### Shout out
 
-Melvin and Carter were great helps, especially with the useEffects!
+Marvin and Carter were great helps, especially with the useEffects!
