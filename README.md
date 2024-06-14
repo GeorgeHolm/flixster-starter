@@ -60,11 +60,12 @@ Deployed Application (optional): [Flixster Deployed Site](https://flixter.onrend
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+I thought the labs were good in preparing me, especially lab two as it gave me a good introduction into react and the fundamentals that allowed me to start my weekly assignment. My main struggle was getting too far into the weekly assignment compared to where we were at with the labs, so I would look ahead to see what I needed to know in order to progress. This method generally kept me moving smoothly in the assignment and also helped strengthen my React skills.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
+
+If I had more time, I would go deeper into the styling, as I think it is one of my weaker areas as a software engineer since in the past I have had to put little effort into it compared to other features. This time I went further than last week in styling, and learned some good techniques, but I think there is room for improvement. I would also like to learn how to make a backend where the website remembers which movies you liked and have watched, which would add to the functionality of the webstie.
   
-Add your response here
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
@@ -72,8 +73,8 @@ Add your response here
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+React
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Melvin and Carter were great helps, especially with the useEffects!
