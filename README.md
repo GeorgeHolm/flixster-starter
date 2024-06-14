@@ -48,7 +48,14 @@ Deployed Application (optional): [Flixster Deployed Site](https://flixter.onrend
 ### Walkthrough Video
 
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/917686f84b26404c822516adfa84264d?sid=86930018-f367-4704-abd0-b90d663aa44d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div>
+    <a href="https://www.loom.com/share/917686f84b26404c822516adfa84264d">
+      <p>Building Flickster Website Features - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/917686f84b26404c822516adfa84264d">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/917686f84b26404c822516adfa84264d-with-play.gif">
+    </a>
+  </div>
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
