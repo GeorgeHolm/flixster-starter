@@ -41,8 +41,7 @@ export function Modal(props) {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-        import.meta.env.VITE_API_KEY,
+        Authorization: import.meta.env.VITE_API_KEY,
       },
     };
     fetch(url, options)
@@ -60,28 +59,31 @@ export function Modal(props) {
 
   return (
     <div className={style} onClick={() => props.onRequestClose()}>
-      <div className="modal"  onClick={(e) => e.stopPropagation()}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="bottom">
           <span className="half  right-border">
             <h2>{movie.title}</h2>
             <img
+              alt="Poster for movie"
               className="poster"
               src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
             />
           </span>
           <span className="half">
             <button onClick={() => props.onRequestClose()}>Cancel</button>
-            <p>Release Date: {movie.release_date}</p>
             <div id="overview">
+              <p>Release Date: {movie.release_date}</p>
+              <div>
                 <p>Overview: {movie.overview}</p>
+              </div>
+              <div>
+                <span>Genres: </span>
+                {movie.genres?.map((res) => (
+                  <span>{res.name + " "}</span>
+                ))}
+              </div>
+              <p>Runtime: {movie.runtime} Minutes</p>
             </div>
-            <div>
-              <span>Genres: </span>
-              {movie.genres?.map((res) => (
-                <span>{res.name + " "}</span>
-              ))}
-            </div>
-            <p>Runtime: {movie.runtime} Minutes</p>
 
             <div id="trailer">
               <iframe
@@ -100,9 +102,11 @@ export function Modal(props) {
             </div>
           </span>
         </div>
-     
-            <img id="backdrop"  src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}/>
-    
+
+        <img
+          id="backdrop"
+          src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
+        />
       </div>
     </div>
   );

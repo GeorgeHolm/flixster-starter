@@ -59,7 +59,7 @@ const MovieCard = (props) => {
 
     return (
         <div className="movie" onClick={details}>
-            <img className="poster" src={props.image}/>
+            <img alt="Poster for movie" className="poster" src={props.image}/>
             <h3>{props.title}</h3>
             <p>Rating: {props.rating}/10</p>
             <div>

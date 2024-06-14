@@ -122,7 +122,7 @@ const App = () => {
             contentLabel="Example Modal"
           />
       <header>
-            <h1 className='headLogo'>&#127871; Flixter &#127909;</h1>
+            <h1 className='headLogo'>&#127871; Flixster &#127909;</h1>
 
         <div className=' flex'>
           
@@ -173,9 +173,9 @@ const App = () => {
       </main>
 
       <footer>
-        <span>All Rights Reserved | </span>
+        <span>All Rights Reserved | About: Flixter connects with the TMDB API to show movies. You can search, sort, and see more details on any movie you want. | </span>
         <span>
-          <a href="https://www.linkedin.com/checkpoint/lg/login-submit">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/george-holm">Contact: LinkedIn</a>
         </span>
         
       </footer>
