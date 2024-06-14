@@ -69,7 +69,7 @@ If I had more time, I would go deeper into the styling, as I think it is one of 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+The project demo went really well! Everyone got to share their part. I thought that some people did a really good job emulating netflixes modal for when you click on a movie, and I think that if I did that it would greatly enance the visual appeal of my project.
 
 ### Open-source libraries used
 
