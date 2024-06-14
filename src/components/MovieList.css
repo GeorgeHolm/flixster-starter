@@ -1,51 +1,50 @@
 #movies {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background: linear-gradient(
-        to bottom right,
-        #a0060e,
-        #89050c,
-        #170102,
-        #73050a
-      );
-      width: 100%;
-      
-      border: 4px solid white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: linear-gradient(
+    to bottom right,
+    #a0060e,
+    #89050c,
+    #170102,
+    #73050a
+  );
+  width: 100%;
+
+  border: 4px solid white;
 }
 
 #large-container {
-    display: flex;
+  display: flex;
 }
 
 #side-bar {
-    border-top: 4px solid white;
-    border-bottom: 4px solid white;
-    width: 20%;
-    min-width: 150px;
-    background-color: #170102;
-    vertical-align: top;
-    color: white;
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+  width: 20%;
+  min-width: 150px;
+  background-color: #170102;
+  vertical-align: top;
+  color: white;
 }
 .flex-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
 }
 
 .side-header {
-    width: 100%;
-    align-self: center;
+  width: 100%;
+  align-self: center;
 }
 
 .on {
-    display: block;
+  display: block;
 }
 
 .off {
-    display: none;
+  display: none;
 }
 
-#loadMore{
-    margin:5px;
+#loadMore {
+  margin: 5px;
 }
-

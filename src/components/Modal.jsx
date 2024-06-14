@@ -55,6 +55,7 @@ export function Modal(props) {
 
   console.log(movie);
 
+  
   //May need to make changes to genres
 
   return (

@@ -1,32 +1,29 @@
-
 .modal .poster {
-    width: 20vw;
-    height: 30vw;
-  }
+  width: 20vw;
+  height: 30vw;
+}
 
-  .modal button {
-    margin: 10px;
-    float: right;
-  }
+.modal button {
+  margin: 10px;
+  float: right;
+}
 
+#overview {
+  overflow-y: auto;
+  height: 20vh;
+  width: 100%;
+  margin-bottom: 10px;
+}
 
-  #overview {
-    overflow-y: auto;
-    height: 20vh;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  #backdrop{
-    z-index: 2;
-    opacity: 0.2;
-    position: absolute;
-    float: left;
-    width: 80%;
-    height: 80%;
-    filter: blur(5px);
-
-  }
+#backdrop {
+  z-index: 2;
+  opacity: 0.2;
+  position: absolute;
+  float: left;
+  width: 80%;
+  height: 80%;
+  filter: blur(5px);
+}
 
 .overlay {
   box-sizing: border-box;
@@ -42,43 +39,38 @@
   background-color: rgba(52, 64, 84, 0.6);
   backdrop-filter: blur(8px);
   z-index: 1; /* Sit on top */
-
 }
 #trailer {
-    align-items: center;
-    margin-left: 20%;
-    margin-right: 20%;
-    height: 20vw;
-    width: 28vw;
+  align-items: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 20vw;
+  width: 28vw;
 }
 .half {
-    float: left;
-    align-items: center;
-    width: 49%;
-    z-index: 2;
-
+  float: left;
+  align-items: center;
+  width: 49%;
+  z-index: 2;
 }
 
-.right-border { 
-    border-right: 5px solid ;
-    border-image: linear-gradient(45deg, #2e0204, #96070e) 1;
+.right-border {
+  border-right: 5px solid;
+  border-image: linear-gradient(45deg, #2e0204, #96070e) 1;
 
-    height: 100%;
+  height: 100%;
 }
 
 .bottom {
-    display: table;
-    height: 100%;
-    z-index: 3;
-
+  display: table;
+  height: 100%;
+  z-index: 3;
 }
 
-
-
 .modal {
-    text-shadow: 0.1px 0 #000000;
-    color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  text-shadow: 0.1px 0 #000000;
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
 
   display: flex;
   flex-direction: column;
@@ -90,16 +82,13 @@
     0px 8px 8px -4px rgba(16, 24, 40, 0.04);
   transition: all 0.5s ease;
   z-index: 1;
-  border: 5px solid ;
+  border: 5px solid;
   border-image: linear-gradient(45deg, #2e0204, #9f060e) 3;
 }
 
-
 .modalOpen {
-    display: block;
+  display: block;
 }
 .modalClosed {
-    display: none;
-
+  display: none;
 }
-

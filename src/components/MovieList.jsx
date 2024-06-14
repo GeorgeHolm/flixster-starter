@@ -8,11 +8,10 @@ import { useState, useEffect } from "react";
 const MovieList = (props) => {
   const [results, setResults] = useState([]);
   const [nextPage, setNextPage] = useState(1);
-  const[propsLink, setPropsLink] = useState(props.link);
-  const[favoriteMovies, setFavoriteMovies] = useState([]);
-  const[watchedMovies, setWatchedMovies] = useState([]);
-  const[sideBarStyle, setSideBarStyle] = useState("off");
-
+  const [propsLink, setPropsLink] = useState(props.link);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [watchedMovies, setWatchedMovies] = useState([]);
+  const [sideBarStyle, setSideBarStyle] = useState("off");
 
   useEffect(() => {
     handlePropsLink();
@@ -23,8 +22,7 @@ const MovieList = (props) => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          import.meta.env.VITE_API_KEY,
+        Authorization: import.meta.env.VITE_API_KEY,
       },
     };
     fetch(url, options)
@@ -34,7 +32,6 @@ const MovieList = (props) => {
           setResults(res.results);
         } else {
           setResults((prevState) => [...prevState, ...res.results]);
-
         }
       }) //spread operator
 
@@ -45,141 +42,126 @@ const MovieList = (props) => {
     setNextPage((nPage) => nPage + 1);
   };
 
-
   const handlePropsLink = () => {
     if (propsLink !== props.link) {
-        setNextPage(1);
+      setNextPage(1);
     }
     setPropsLink(props.link);
-  }
-
+  };
 
   const filterMovies = (filter) => {
-
-    const fR = results.filter((movie, idx, self) => self.findIndex(i => i.title === movie.title) === idx);
+    const fR = results.filter(
+      (movie, idx, self) =>
+        self.findIndex((i) => i.title === movie.title) === idx
+    );
 
     if (filter === "default") {
-        return fR;
+      return fR;
+    } else if (filter === "best") {
+      return fR.filter((movie) => movie.vote_average >= 7);
+    } else if (filter === "worst") {
+      return fR.filter((movie) => movie.vote_average <= 5);
+    } else if (filter === "comedy") {
+      return fR.filter((movie) => movie.genre_ids?.some((id) => id === 35));
+    } else if (filter === "action") {
+      return fR.filter((movie) => movie.genre_ids?.some((id) => id === 28));
+    } else if (filter === "drama") {
+      return fR.filter((movie) => movie.genre_ids?.some((id) => id === 18));
+    } else if (filter === "horror") {
+      return fR.filter((movie) => movie.genre_ids?.some((id) => id === 27));
+    } else if (filter === "az") {
+      return fR.sort((a, b) => {
+        if (a.title < b.title) return -1;
+        if (a.title > b.title) return 1;
+        return 0;
+      });
+    } else if (filter === "za") {
+      return fR.sort((a, b) => {
+        if (b.title < a.title) return -1;
+        if (b.title > a.title) return 1;
+        return 0;
+      });
     }
-    else if(filter === "best") {
-        return fR.filter(movie => movie.vote_average >= 7);
-    }
-    else if(filter === "worst") {
-        return fR.filter(movie => movie.vote_average <= 5);
-    }
-    else if(filter === "comedy") {
-        return fR.filter(movie => movie.genre_ids?.some((id) => id === 35));
-    }
-    else if(filter === "action") {
-        return fR.filter(movie => movie.genre_ids?.some((id) => id === 28));
-    }
-    else if(filter === "drama") {
-        return fR.filter(movie => movie.genre_ids?.some((id) => id === 18));
-    }
-    else if(filter === "horror") {
-        return fR.filter(movie => movie.genre_ids?.some((id) => id === 27));
-    }
-    else if(filter === "az") {
-        return fR.sort((a, b) => {
-            if (a.title < b.title) return -1;
-            if (a.title > b.title) return 1;
-            return 0;
-          });
-    }
-    else if(filter === "za") {
-        return fR.sort((a, b) => {
-            if (b.title < a.title) return -1;
-            if (b.title > a.title) return 1;
-            return 0;
-          });    }
   };
 
   const filteredResults = filterMovies(props.filter);
-
-
 
   //favorite movies
 
   const editFavorites = (movie) => {
     setFavoriteMovies((prevState) => [...prevState, movie]);
-  }
+  };
 
   const removeFavorites = (movie) => {
-
-        setFavoriteMovies(favoriteMovies => favoriteMovies.filter(key => key !== movie));
-  }
+    setFavoriteMovies((favoriteMovies) =>
+      favoriteMovies.filter((key) => key !== movie)
+    );
+  };
 
   const editWatched = (movie) => {
     setWatchedMovies((prevState) => [...prevState, movie]);
-  }
+  };
 
   const removeWatched = (movie) => {
+    setWatchedMovies((favoriteMovies) =>
+      favoriteMovies.filter((key) => key !== movie)
+    );
+  };
 
-        setWatchedMovies(favoriteMovies => favoriteMovies.filter(key => key !== movie));
-  }
+  //side bar stuff
 
-
-    //side bar stuff
-
-    const setSide = () => {
-        console.log("jnakjckjcn");
-        if(props.sideBar) {
-            setSideBarStyle("on");
-        } 
-        else {
-            setSideBarStyle("off");
-        }
+  const setSide = () => {
+    console.log("jnakjckjcn");
+    if (props.sideBar) {
+      setSideBarStyle("on");
+    } else {
+      setSideBarStyle("off");
     }
+  };
 
- useEffect(() => {
+  useEffect(() => {
     setSide();
- }, [props.sideBar]);
-
-
-
+  }, [props.sideBar]);
 
   return (
     <div id="large-container">
-    <div id="movies">
-      <div className="flex-box">
-        {filteredResults.map((res, idx) => (
-          <MovieCard
-            title={res.title}
-            image={"https://image.tmdb.org/t/p/w500" + res.poster_path}
-            rating={res.vote_average}
-            key={idx}
-            totalData={res}
-            showModal={props.showModal}
-            setModal={props.setModal}
-            ef={editFavorites}
-            rf={removeFavorites}
-            ew={editWatched}
-            rw={removeWatched}
-          />
+      <div id="movies">
+        <div className="flex-box">
+          {filteredResults.map((res, idx) => (
+            <MovieCard
+              title={res.title}
+              image={"https://image.tmdb.org/t/p/w500" + res.poster_path}
+              rating={res.vote_average}
+              key={idx}
+              totalData={res}
+              showModal={props.showModal}
+              setModal={props.setModal}
+              ef={editFavorites}
+              rf={removeFavorites}
+              ew={editWatched}
+              rw={removeWatched}
+            />
+          ))}
+        </div>
+
+        <button id="loadMore" onClick={loadMore}>
+          Load More
+        </button>
+      </div>
+      <div id="side-bar" className={sideBarStyle}>
+        <h2 className="side-header">Favorites</h2>
+
+        {favoriteMovies.map((name) => (
+          <p>{name}</p>
+        ))}
+
+        <h2 className="side-header">Watched</h2>
+
+        {watchedMovies.map((name) => (
+          <p>{name}</p>
         ))}
       </div>
-
-      <button id="loadMore" onClick={loadMore}>
-        Load More
-      </button>
     </div>
-    <div id="side-bar" className={sideBarStyle}>
-        <h2 className="side-header">
-            Favorites
-            
-        </h2>
-
-        {favoriteMovies.map((name) => (<p>{name}</p>))}
-
-        <h2 className="side-header">
-            Watched
-            
-        </h2>
-
-        {watchedMovies.map((name) => (<p>{name}</p>))}
-    </div>
-    </div>
-
   );
 };
 

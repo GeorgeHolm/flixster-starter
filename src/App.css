@@ -3,11 +3,11 @@
 }
 
 h1 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: bolder;
   font-size: 60px;
   margin: 0px;
-  padding:20px;
+  padding: 20px;
   color: white;
 }
 
@@ -17,7 +17,7 @@ a {
 
 footer {
   background-color: #73050a;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
   padding: 10px;
 }
@@ -30,8 +30,6 @@ footer {
 .margin {
   margin: 10px;
 }
-
-
 
 .headLogo {
   display: flex;
@@ -48,8 +46,6 @@ header {
   background-color: #73050a;
   margin: 0px;
 }
-
-
 
 .App-header {
   background-color: #282c34;
@@ -77,27 +73,24 @@ header {
 }
 
 .sortClass {
-
-  all:unset;
+  all: unset;
 
   padding: 10px;
   border: 2px solid #000000;
   border-radius: 24px;
   box-sizing: border-box;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 16px;
   font-weight: bolder;
   color: #ffffff;
   background: #282c34;
   outline: none;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .sortClass:hover {
   background: #707071;
-
 }
-
 
 .input {
   vertical-align: top;
@@ -108,24 +101,21 @@ header {
   border: 2px solid #000000;
   border-radius: 24px;
   box-sizing: border-box;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 18px;
   color: #000000;
   outline: none;
-  transition: .5s;
-
+  transition: 0.5s;
 }
-
 
 .input:hover {
   background: #3b3640;
   color: #ffffff;
-  transition: .5s;
-
+  transition: 0.5s;
 }
 
 form #minimize-form {
-  color:white;
+  color: white;
 }
 
 #now-playing {
@@ -133,22 +123,19 @@ form #minimize-form {
   border: 2x solid #ffd52d;
   border-radius: 24px;
   box-sizing: border-box;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 16px;
   color: #ffffff;
   outline: none;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-.box:hover input{
+.box:hover input {
   width: 200px;
   background: #3b3640;
   border-radius: 24px;
   color: #ffffff;
 }
-
-
-
 
 .flex {
   display: flex;
